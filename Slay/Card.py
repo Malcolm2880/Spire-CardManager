@@ -19,7 +19,7 @@ textFrame = Frame(root)
 textFrame.grid(row =1, column = 1,sticky='s')
 text= Label(cardFrame)
 
-
+allCards = []
 
 
 
@@ -39,15 +39,6 @@ for x in glob.glob("*.png"):
     images[name]=red
     allCards.append(name)
 
-imgBtn = tk.Button(buttonFrame, image=images["Deck"], command=showDeck).grid(row=0,column=0,sticky ='nw')
-        
-select1 = tk.Button(buttonFrame, image=images["Red"], command=lambda: showSelection(1)).grid(row=1,column=0,sticky ='s')
-select2 = tk.Button(buttonFrame, image=images["Blue"], command=lambda: showSelection(2)).grid(row=2,column=0,sticky ='s')
-select3 = tk.Button(buttonFrame, image=images["Green"], command=lambda: showSelection(3)).grid(row=3,column=0,sticky ='s')
-
-
-Evaluate = tk.Button(buttonFrame ,image=images["Str"], command=showDmg).grid(row=6,column=0,sticky ='s')
-EvaluateDef = tk.Button(buttonFrame ,image=images["Dex"], command=showDef).grid(row=7,column=0,sticky ='s')
 
 
 root.geometry('800x800')
@@ -56,7 +47,7 @@ root.geometry('800x800')
 def showDmg():
     global cardFrame
     clear()
-    val = MaxAtk()
+    val = maxAtk()
 
 #calculates the maximum defense from the current deck, then displays the cards that achieve this feat
 def maxDef():
@@ -500,5 +491,5 @@ def showDef():
     # card = input("What card did you take?")
     # deck.append(card)
 
-
+clearAll()
 root.mainloop()
