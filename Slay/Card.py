@@ -31,14 +31,14 @@ for x in glob.glob("Buttons/*.png"):
     red = ImageTk.PhotoImage(my_image)
     images[name]=red
 
-for x in glob.glob("*.png"):
+for x in glob.glob("Cards/*.png"):
     my_image = Image.open(x)
-    my_image = my_image.resize((339, 437))  
+    my_image = my_image.resize((339, 437)) 
+    x = x.rsplit('\\')[1] 
     name = x.rsplit('.')[0]
     red = ImageTk.PhotoImage(my_image)
     images[name]=red
     allCards.append(name)
-
 
 
 root.geometry('800x800')
